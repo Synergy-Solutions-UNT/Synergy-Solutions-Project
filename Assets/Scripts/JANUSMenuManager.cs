@@ -94,9 +94,11 @@ public class JANUSMenuManager : MonoBehaviour
     // ─────────────────────────────────────────────────────────────────────
 
     [Header("Session Controls")]
+    [SerializeField] private Button beginButton;
     [SerializeField] private Button pauseButton;
     [SerializeField] private Button endButton;
     [SerializeField] private Text statusText;
+    [SerializeField] private Text elapsedText;
 
     // ─────────────────────────────────────────────────────────────────────
     // Inspector — Colours (minimalist palette)
@@ -165,6 +167,18 @@ public class JANUSMenuManager : MonoBehaviour
             _hw.OnStatusChanged -= OnHardwareStatusChanged;
     }
 
+    private void Update()
+    {
+        // Update elapsed timer while session is running
+        if (_state == SessionState.Running && elapsedText != null)
+        {
+            float elapsed = Time.time - _sessionStart;
+            int minutes = Mathf.FloorToInt(elapsed / 60f);
+            int seconds = Mathf.FloorToInt(elapsed % 60f);
+            elapsedText.text = $"{minutes:00}:{seconds:00}";
+        }
+    }
+
     // ─────────────────────────────────────────────────────────────────────
     // Button wiring
     // ─────────────────────────────────────────────────────────────────────
@@ -185,8 +199,29 @@ public class JANUSMenuManager : MonoBehaviour
             row.RowButton.onClick.AddListener(() => SelectModule(id));
         }
 
+        if (beginButton != null) beginButton.onClick.AddListener(OnBeginPressed);
         if (pauseButton != null) pauseButton.onClick.AddListener(OnPausePressed);
         if (endButton   != null) endButton.onClick.AddListener(OnEndPressed);
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // Public API — Auto-wiring (called by JANUSMenuSetup)
+    // ─────────────────────────────────────────────────────────────────────
+
+    public void WireFromSetup(
+        Text patientID, Text sessionCounter, Text elapsed,
+        FloorPlanCard[] cards, ModuleRow[] modules,
+        Button begin, Button pause, Button end, Text status)
+    {
+        patientIDText      = patientID;
+        sessionCounterText = sessionCounter;
+        elapsedText        = elapsed;
+        floorPlanCards     = cards;
+        moduleRows         = modules;
+        beginButton        = begin;
+        pauseButton        = pause;
+        endButton          = end;
+        statusText         = status;
     }
 
     // ─────────────────────────────────────────────────────────────────────
@@ -275,6 +310,17 @@ public class JANUSMenuManager : MonoBehaviour
     // Session button handlers
     // ─────────────────────────────────────────────────────────────────────
 
+    private void OnBeginPressed()
+    {
+        if (_state == SessionState.Idle && !string.IsNullOrEmpty(_selectedModule))
+        {
+            _state        = SessionState.Running;
+            _sessionStart = Time.time;
+            JANUSEvents.OnModuleBegin?.Invoke(_selectedModule);
+            RefreshSessionControls();
+        }
+    }
+
     private void OnPausePressed()
     {
         if (_state == SessionState.Running)
@@ -286,12 +332,6 @@ public class JANUSMenuManager : MonoBehaviour
         {
             _state = SessionState.Running;
             JANUSEvents.OnSessionResumed?.Invoke();
-        }
-        else if (_state == SessionState.Idle && !string.IsNullOrEmpty(_selectedModule))
-        {
-            _state        = SessionState.Running;
-            _sessionStart = Time.time;
-            JANUSEvents.OnModuleBegin?.Invoke(_selectedModule);
         }
         RefreshSessionControls();
     }
@@ -367,6 +407,14 @@ public class JANUSMenuManager : MonoBehaviour
 
     private void RefreshSessionControls()
     {
+        // Begin Module button — only active when Idle and a module is selected
+        if (beginButton != null)
+        {
+            beginButton.interactable = _state == SessionState.Idle
+                                       && !string.IsNullOrEmpty(_selectedModule);
+        }
+
+        // Pause button — toggles between Pause/Resume during a running session
         if (pauseButton != null)
         {
             var label = pauseButton.GetComponentInChildren<Text>();
@@ -374,17 +422,18 @@ public class JANUSMenuManager : MonoBehaviour
             {
                 label.text = _state switch
                 {
-                    SessionState.Idle    => "Begin",
                     SessionState.Running => "Pause",
                     SessionState.Paused  => "Resume",
-                    SessionState.Ended   => "Ended",
-                    _                    => "Begin",
+                    _                    => "Pause",
                 };
             }
-            pauseButton.interactable = _state != SessionState.Ended;
+            pauseButton.interactable = _state == SessionState.Running
+                                       || _state == SessionState.Paused;
         }
 
+        // End Session button — active while running or paused
         if (endButton != null)
-            endButton.interactable = _state == SessionState.Running || _state == SessionState.Paused;
+            endButton.interactable = _state == SessionState.Running
+                                     || _state == SessionState.Paused;
     }
 }

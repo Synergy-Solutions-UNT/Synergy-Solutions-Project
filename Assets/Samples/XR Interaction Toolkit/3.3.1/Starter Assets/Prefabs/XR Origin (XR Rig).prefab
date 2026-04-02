@@ -648,6 +648,7 @@ MonoBehaviour:
   m_InAirControlModifier: 0.5
   m_EnableStrafe: 1
   m_EnableFly: 0
+  m_UseGravity: 1
   m_ForwardSource: {fileID: 1767192434}
   m_LeftHandMoveInput:
     m_InputSourceMode: 2
@@ -677,7 +678,6 @@ MonoBehaviour:
     m_InputActionReference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
-  m_UseGravity: 1
   m_HeadTransform: {fileID: 1767192434}
   m_LeftControllerTransform: {fileID: 202364688}
   m_RightControllerTransform: {fileID: 1670256625}
@@ -740,12 +740,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 51
   m_SphereCastTriggerInteraction: 1
-  m_OnGravityLockChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnGroundedChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1470279098769358944
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,9 +879,6 @@ GameObject:
   - component: {fileID: 6520291404937146767}
   - component: {fileID: 5826056641483426609}
   - component: {fileID: 5033801203051696737}
-  - component: {fileID: 6961518550989149269}
-  - component: {fileID: 2050362273248908451}
-  - component: {fileID: 5693236598815684492}
   m_Layer: 2
   m_Name: XR Origin (XR Rig)
   m_TagString: Untagged
@@ -895,15 +886,16 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1717954561962503726
-RectTransform:
+--- !u!4 &1717954561962503726
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717954561962503725}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.116}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -911,11 +903,6 @@ RectTransform:
   - {fileID: 6981642495833523204}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.07}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1178791450436251564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,95 +1015,6 @@ MonoBehaviour:
   m_AimAssistRequiredSpeed: 0.25
   m_AimAssistPercent: 0.8
   m_AimAssistMaxSpeedPercent: 10
---- !u!223 &6961518550989149269
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717954561962503725}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!114 &2050362273248908451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717954561962503725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f23ebbe6a5213914c896ca2a56f6a0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JANUSMenuManager
-  patientIDText: {fileID: 0}
-  sessionCounterText: {fileID: 0}
-  floorPlans:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  floorPlanCards:
-  - CardButton: {fileID: 0}
-    OutlineImage: {fileID: 0}
-    CheckMark: {fileID: 0}
-    NameText: {fileID: 0}
-    DescText: {fileID: 0}
-  - CardButton: {fileID: 0}
-    OutlineImage: {fileID: 0}
-    CheckMark: {fileID: 0}
-    NameText: {fileID: 0}
-    DescText: {fileID: 0}
-  - CardButton: {fileID: 0}
-    OutlineImage: {fileID: 0}
-    CheckMark: {fileID: 0}
-    NameText: {fileID: 0}
-    DescText: {fileID: 0}
-  moduleRows: []
-  pauseButton: {fileID: 0}
-  endButton: {fileID: 0}
-  statusText: {fileID: 0}
-  colSelected: {r: 0.17, g: 0.37, b: 0.54, a: 1}
-  colUnselected: {r: 0.88, g: 0.86, b: 0.82, a: 1}
-  colHwOK: {r: 0.24, g: 0.48, b: 0.35, a: 1}
-  colHwWarn: {r: 0.6, g: 0.42, b: 0.16, a: 1}
-  colHwCritical: {r: 0.72, g: 0.18, b: 0.18, a: 1}
---- !u!114 &5693236598815684492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717954561962503725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e357c1aadd897c44ba6673b4a32a1f9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JANUSVRInputHandler
-  leftInteractor: {fileID: 0}
-  rightInteractor: {fileID: 0}
-  leftMenuAction: {fileID: 0}
-  rightMenuAction: {fileID: 0}
-  gazeEnabled: 1
-  dwellSeconds: 1.8
-  hapticsEnabled: 1
-  hoverAmplitude: 0.04
-  hoverDuration: 0.03
-  selectAmplitude: 0.22
-  selectDuration: 0.055
 --- !u!1 &1787516059220952802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,8 +1252,8 @@ MonoBehaviour:
   m_EnableFreeXMovement: 1
   m_EnableFreeYMovement: 0
   m_EnableFreeZMovement: 1
-  m_GravityApplicationMode: 0
   m_UseGravity: 1
+  m_GravityApplicationMode: 0
   m_ControllerTransform: {fileID: 202364688}
   m_EnableMoveWhileSelecting: 0
   m_MoveFactor: 1
@@ -1418,8 +1316,8 @@ MonoBehaviour:
   m_EnableFreeXMovement: 1
   m_EnableFreeYMovement: 0
   m_EnableFreeZMovement: 1
-  m_GravityApplicationMode: 0
   m_UseGravity: 1
+  m_GravityApplicationMode: 0
   m_ControllerTransform: {fileID: 1670256625}
   m_EnableMoveWhileSelecting: 0
   m_MoveFactor: 1
@@ -1482,8 +1380,8 @@ MonoBehaviour:
   m_EnableFreeXMovement: 1
   m_EnableFreeYMovement: 0
   m_EnableFreeZMovement: 1
-  m_GravityApplicationMode: 0
   m_UseGravity: 1
+  m_GravityApplicationMode: 0
   m_LeftGrabMoveProvider: {fileID: 2032798983271290625}
   m_RightGrabMoveProvider: {fileID: 4083252680172266230}
   m_OverrideSharedSettingsOnInit: 1
@@ -1781,8 +1679,6 @@ MonoBehaviour:
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_StartingTargetFilter: {fileID: 0}
-  m_AutoFindParentInteractableInHierarchy: 0
-  m_ParentInteractableObject: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls: []

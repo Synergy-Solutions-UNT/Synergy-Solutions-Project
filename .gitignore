@@ -129,3 +129,8 @@ packages/
 *.swp
 *.swo
 *~
+
+JANUS/Library/
+JANUS/Temp/
+JANUS/Logs/
+JANUS/obj/

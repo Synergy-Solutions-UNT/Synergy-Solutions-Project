@@ -2293,10 +2293,10 @@ GameObject:
   - component: {fileID: 769628919}
   - component: {fileID: 769628918}
   - component: {fileID: 769628917}
-  - component: {fileID: 769628916}
-  - component: {fileID: 769628915}
-  - component: {fileID: 769628913}
   - component: {fileID: 769628921}
+  - component: {fileID: 769628925}
+  - component: {fileID: 769628924}
+  - component: {fileID: 769628923}
   - component: {fileID: 769628922}
   m_Layer: 5
   m_Name: JANUS_Menu
@@ -2305,74 +2305,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &769628913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769628912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 822c49ea0501e554ebd745673fbca91a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JANUSHardwareMonitor
-  pollInterval: 2
-  warnThreshold: 0.3
-  criticalThreshold: 0.15
---- !u!114 &769628915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769628912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f23ebbe6a5213914c896ca2a56f6a0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JANUSMenuManager
-  patientIDText: {fileID: 668875609}
-  sessionCounterText: {fileID: 2024978610}
-  floorPlans:
-  - {fileID: 0}
-  - {fileID: 0}
-  floorPlanCards:
-  - CardButton: {fileID: 0}
-    OutlineImage: {fileID: 0}
-    CheckMark: {fileID: 0}
-    NameText: {fileID: 0}
-    DescText: {fileID: 0}
-  - CardButton: {fileID: 0}
-    OutlineImage: {fileID: 0}
-    CheckMark: {fileID: 0}
-    NameText: {fileID: 0}
-    DescText: {fileID: 0}
-  moduleRows: []
-  pauseButton: {fileID: 822790349}
-  endButton: {fileID: 677178978}
-  statusText: {fileID: 0}
-  colSelected: {r: 0.17, g: 0.37, b: 0.54, a: 1}
-  colUnselected: {r: 0.88, g: 0.86, b: 0.82, a: 1}
-  colHwOK: {r: 0.24, g: 0.48, b: 0.35, a: 1}
-  colHwWarn: {r: 0.6, g: 0.42, b: 0.16, a: 1}
-  colHwCritical: {r: 0.72, g: 0.18, b: 0.18, a: 1}
---- !u!114 &769628916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769628912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33663df71843a3e4a86d10116602b701, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JANUSMenuSetup
-  LeftInteractor: {fileID: 1341012720}
-  RightInteractor: {fileID: 1112513694}
-  WidthMetres: 0.68
-  HeightMetres: 0.6
 --- !u!114 &769628917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2412,7 +2344,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &769628919
 Canvas:
   m_ObjectHideFlags: 0
@@ -2422,8 +2354,8 @@ Canvas:
   m_GameObject: {fileID: 769628912}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 2
+  m_Camera: {fileID: 1435786614}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2445,7 +2377,7 @@ RectTransform:
   m_GameObject: {fileID: 769628912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 354506703}
@@ -2453,9 +2385,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 575, y: 438.5}
+  m_SizeDelta: {x: 1150, y: 877}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &769628921
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2477,13 +2409,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 769628912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e357c1aadd897c44ba6673b4a32a1f9e, type: 3}
+  m_Script: {fileID: 11500000, guid: d5baddad5e7c88a48a066c5e00a48383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JANUSVRInputHandler
   leftInteractor: {fileID: 1341012720}
   rightInteractor: {fileID: 1112513694}
-  leftMenuAction: {fileID: -4501257590339558721, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  rightMenuAction: {fileID: -7442625193896132510, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  leftMenuAction: {fileID: 7447200674614470378, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rightMenuAction: {fileID: 1672548662249648851, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   gazeEnabled: 1
   dwellSeconds: 1.8
   hapticsEnabled: 1
@@ -2491,6 +2423,78 @@ MonoBehaviour:
   hoverDuration: 0.03
   selectAmplitude: 0.22
   selectDuration: 0.055
+--- !u!114 &769628923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769628912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba205338e205524cab909fe2dc02c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JANUSMenuSetup
+--- !u!114 &769628924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769628912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dc9a8fca3f98f940b20904ddb4aa77d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JANUSMenuManager
+  patientIDText: {fileID: 0}
+  sessionCounterText: {fileID: 0}
+  floorPlans:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  floorPlanCards:
+  - CardButton: {fileID: 0}
+    OutlineImage: {fileID: 0}
+    CheckMark: {fileID: 0}
+    NameText: {fileID: 0}
+    DescText: {fileID: 0}
+  - CardButton: {fileID: 0}
+    OutlineImage: {fileID: 0}
+    CheckMark: {fileID: 0}
+    NameText: {fileID: 0}
+    DescText: {fileID: 0}
+  - CardButton: {fileID: 0}
+    OutlineImage: {fileID: 0}
+    CheckMark: {fileID: 0}
+    NameText: {fileID: 0}
+    DescText: {fileID: 0}
+  moduleRows: []
+  beginButton: {fileID: 0}
+  pauseButton: {fileID: 0}
+  endButton: {fileID: 0}
+  statusText: {fileID: 0}
+  elapsedText: {fileID: 0}
+  colSelected: {r: 0.17, g: 0.37, b: 0.54, a: 1}
+  colUnselected: {r: 0.88, g: 0.86, b: 0.82, a: 1}
+  colHwOK: {r: 0.24, g: 0.48, b: 0.35, a: 1}
+  colHwWarn: {r: 0.6, g: 0.42, b: 0.16, a: 1}
+  colHwCritical: {r: 0.72, g: 0.18, b: 0.18, a: 1}
+--- !u!114 &769628925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769628912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6fba1e4785ede48b04c0eb9dd1b427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JANUSHardwareMonitor
+  pollInterval: 2
+  warnThreshold: 0.3
+  criticalThreshold: 0.15
 --- !u!1 &772433409
 GameObject:
   m_ObjectHideFlags: 0
@@ -12702,6 +12706,11 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!20 &1435786614 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1767192439, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 2017660214}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1479440278
 GameObject:
   m_ObjectHideFlags: 0
@@ -13461,6 +13470,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 2.58
       objectReference: {fileID: 0}
+    - target: {fileID: 1178791450436251564, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Name
       value: XR Origin (XR Rig)
@@ -13499,7 +13512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.294
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13902,13 +13915,15 @@ GameObject:
   - component: {fileID: 2135185033}
   - component: {fileID: 2135185032}
   - component: {fileID: 2135185031}
+  - component: {fileID: 2135185035}
+  - component: {fileID: 2135185034}
   m_Layer: 0
   m_Name: JANUS_InputListener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2135185029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13923,8 +13938,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JANUSVRInputHandler
   leftInteractor: {fileID: 1341012720}
   rightInteractor: {fileID: 1112513694}
-  leftMenuAction: {fileID: -4501257590339558721, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  rightMenuAction: {fileID: -7442625193896132510, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  leftMenuAction: {fileID: 7447200674614470378, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rightMenuAction: {fileID: 1672548662249648851, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   gazeEnabled: 1
   dwellSeconds: 1.8
   hapticsEnabled: 1
@@ -13986,9 +14001,11 @@ MonoBehaviour:
     NameText: {fileID: 0}
     DescText: {fileID: 0}
   moduleRows: []
+  beginButton: {fileID: 0}
   pauseButton: {fileID: 0}
   endButton: {fileID: 0}
   statusText: {fileID: 0}
+  elapsedText: {fileID: 0}
   colSelected: {r: 0.17, g: 0.37, b: 0.54, a: 1}
   colUnselected: {r: 0.88, g: 0.86, b: 0.82, a: 1}
   colHwOK: {r: 0.24, g: 0.48, b: 0.35, a: 1}
@@ -14016,7 +14033,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1435786614}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -14029,6 +14046,33 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2135185034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135185028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6fba1e4785ede48b04c0eb9dd1b427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JANUSHardwareMonitor
+  pollInterval: 2
+  warnThreshold: 0.3
+  criticalThreshold: 0.15
+--- !u!114 &2135185035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135185028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba205338e205524cab909fe2dc02c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JANUSMenuSetup
 --- !u!1 &2143088116
 GameObject:
   m_ObjectHideFlags: 0
